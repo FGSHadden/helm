@@ -19,3 +19,11 @@ helm repo update
 echo "verify helm"
 # verify that helm is installed in the cluster
 kubectl get deploy,svc tiller-deploy -n kube-system
+
+echo "adding Prometheus Ingress..."
+#Install Service
+kubectl apply -f service-prometheus.yaml
+
+#install Ingress
+kubectl apply -f ingress-prometheus.yaml
+echo "Ingress applied. please wait up to 15 minutes.
